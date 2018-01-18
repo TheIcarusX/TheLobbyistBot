@@ -12,8 +12,8 @@ import random
 client = discord.Client() 
 #client = commands.Bot(command_prefix = "!")
 bot = commands.Bot(command_prefix = "!")
-rulesID = '302470378004021248'
-suggestionsID = '403042572349734913'
+rulesID = 'rules-channel-id'
+suggestionsID = 'suggestions-channel-id'
 #prefix = "!"
 
 
@@ -38,7 +38,7 @@ async def on_message(message):
 
 	if message.content.upper().startswith('!POGCHAMP'):
 		await client.delete_message(message)
-		await client.send_message(message.channel, "<:PogChamp:403323891746996234>")
+		await client.send_message(message.channel, "emote-id")
 
 	if message.content.upper().startswith('!SUGGESTIONS'):
 		userID = message.author.id
@@ -71,4 +71,4 @@ async def on_message(message):
 		await client.send_message(message.channel, random.choice(quote_list))
 
 
-client.run("NDAyOTg1MjM4OTA2Nzk4MDgz.DUA_mQ.gpqP9X0KoXzKdsOmwQgyXIrMvBE")
+client.run("token")
