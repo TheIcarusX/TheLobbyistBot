@@ -9,7 +9,7 @@ This bot was created out of boredom to add utilitarian features to enhance the m
 
 !Rules - Leads users to the rules channel
 
-!PogChamp - The name says it all. *You will have to create a custom emote to use this command. The emote png file can be found in the assets folder. To get the emote id, type \:Emote:.
+!PogChamp - The name says it all. *You will have to create a custom emote to use this command. The emote png file can be found in the same folder as TheLobbyist.py. To get the emote id, type \:Emote:.
 
 !Suggestions - Leads users to the suggestions channel
 
