@@ -25,3 +25,6 @@ This bot was created out of boredom to add utilitarian features to enhance the m
 
 This bot was coded in Python.
 
+To install prerequisites, open command prompt and type pip install discord.py
+
+*Requires Python installed on the computer
