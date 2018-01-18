@@ -24,38 +24,40 @@ async def on_ready():
 @client.event
 async def on_message(message):
     messageDetector = message.content.upper().startswith
+    messageSend = client.send_message
+    messageDelete = client.delete_message
     if messageDetector('!PING'):
         userID = message.author.id
-        await client.send_message(message.channel, "<@%s> Pong!" % (userID))
+        await messageSend(message.channel, "<@%s> Pong!" % (userID))
 
     if messageDetector('!SAY'):
         args = message.content.split(" ")
-        await client.delete_message(message)
-        await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
+        await messageDelete(message)
+        await messageSend(message.channel, "%s" % (" ".join(args[1:])))
 
     if messageDetector('!RULES'):
         userID = message.author.id
-        await client.send_message(message.channel, "<@%s> See <#%s> for a full rundown of the Game Lobby rules!" % (userID,rulesID))
+        await messageSend(message.channel, "<@%s> See <#%s> for a full rundown of the Game Lobby rules!" % (userID,rulesID))
 
     if messageDetector('!POGCHAMP'):
-        await client.delete_message(message)
-        await client.send_message(message.channel, "emote-id")
+        await messageDelete(message)
+        await messageSend(message.channel, "emote-id")
 
     if messageDetector('!SUGGESTIONS'):
         userID = message.author.id
-        await client.send_message(message.channel, "<@%s> See <#%s> to suggest new features for The Lobbyist!" % (userID,suggestionsID))
+        await messageSend(message.channel, "<@%s> See <#%s> to suggest new features for The Lobbyist!" % (userID,suggestionsID))
 
     if messageDetector('!TEST'): 
         userID = message.author.id
-        await client.send_message(message.channel, "<@%s> Testing!" % (userID))
+        await messageSend(message.channel, "<@%s> Testing!" % (userID))
 
     elif messageDetector('!FLIP'):
         flip = random.choice(['Heads','Tails'])
-        await client.send_message(message.channel, flip)
+        await messageSend(message.channel, flip)
 
     elif messageDetector('!ROLL'):
         roll = random.choice(['1','2','3','4','5','6'])
-        await client.send_message(message.channel, roll)
+        await messageSend(message.channel, roll)
 
     elif messageDetector('!ADDQUOTE'):
         if not os.path.isfile("quote_file.pk1"):
@@ -69,7 +71,7 @@ async def on_message(message):
     elif messageDetector("!QUOTE"):
         with open("quote_file.pk1", "r") as quote_file:
             quote_list = json.load(quote_file)
-        await client.send_message(message.channel, random.choice(quote_list))
+        await messageSend(message.channel, random.choice(quote_list))
 
 
 client.run("token")
